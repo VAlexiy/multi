@@ -12,7 +12,7 @@ public final class StringUtils extends AbstractUtils {
     private static final String EMPTY = "";
 
     /**
-     * Строка пустая, либо содержит только пробельные символы?
+     * Строка пустая, либо содержит только "пробельные" символы?
      *
      * @param str проверяемая строка
      * @return true, если строка == null, или содержит только "пробельные" символы
@@ -25,7 +25,7 @@ public final class StringUtils extends AbstractUtils {
      * Строка пустая?
      *
      * @param str проверяемая строка
-     * @return true, если строка == null, или содержит только "пробельные" символы
+     * @return true, если строка == null, или содержит ""
      */
     public static boolean isNullOrEmpty(String str) {
 //        return jdk.internal.joptsimple.internal.Strings.isNullOrEmpty(str);
@@ -84,13 +84,5 @@ public final class StringUtils extends AbstractUtils {
      */
     public static String join(String delimiter, String... strings) {
         return Arrays.stream(strings).collect(Collectors.joining(delimiter));
-    }
-
-    public static String oToString(Object o) {
-        if (o != null) {
-            return o.toString();
-        } else {
-            return null;
-        }
     }
 }
