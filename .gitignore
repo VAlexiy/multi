@@ -1,0 +1,15 @@
+.idea/*
+!.idea/runConfigurations
+*/target
+*.iml
+.settings
+.project
+.classpath
+target
+*.log
+*/node_modules
+~platform-config-local.properties
+/rko-fi-ui/.atom-build.yml
+/rko-fi-ufs/.idea/inspectionProfiles
+/rko-fi-ufs/.idea
+/rko-ui/rko-fi-ufs/.idea
