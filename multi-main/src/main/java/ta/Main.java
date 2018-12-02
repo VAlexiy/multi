@@ -3,16 +3,16 @@ package ta;
 import ta.thread.unit.TestUnitFabric;
 import ta.thread.unit.UnitFabric;
 import ta.util.Logger;
-import ta.util.SystemOutLogger;
+import ta.util.SynchronizedSystemOutLogger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ta.util.SystemOutLogger.LOG_CHRONO_FORMAT;
+import static ta.util.SynchronizedSystemOutLogger.LOG_CHRONO_FORMAT;
 
 public class Main {
 
-    private static final Logger logger = new SystemOutLogger(LOG_CHRONO_FORMAT);
+    private static final Logger logger = new SynchronizedSystemOutLogger(LOG_CHRONO_FORMAT);
     private static final UnitFabric unitFabric = new TestUnitFabric(logger);
 
     public static void main(String[] args) {
