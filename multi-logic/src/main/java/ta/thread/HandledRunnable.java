@@ -2,14 +2,13 @@ package ta.thread;
 
 import ta.util.Logger;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 public interface HandledRunnable extends Runnable {
 
-    void run(Map<String, Serializable> context) throws InterruptedException;
+    void run(ThreadContext context) throws InterruptedException;
+
+    ThreadContext getContext();
 
     default Logger getLogger() {
         return null;
@@ -26,7 +25,7 @@ public interface HandledRunnable extends Runnable {
 
     default void run() {
         try {
-            run(new HashMap<>());
+            run(getContext());
         } catch (InterruptedException e) {
             logException(e);
             Thread.currentThread().interrupt();

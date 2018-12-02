@@ -10,8 +10,14 @@
 
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>9</maven.compiler.source>
+        <maven.compiler.target>9</maven.compiler.target>
+    </properties>
+
     <modules>
         <module>multi-logic</module>
+        <module>multi-main</module>
     </modules>
 
     <dependencyManagement>
@@ -25,15 +31,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>ta</groupId>
-            <artifactId>multi-logic</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
 
 </project>

@@ -1,21 +1,23 @@
 package ta;
 
 import ta.thread.TestThread;
+import ta.thread.unit.TestUnitFabric;
+import ta.thread.unit.UnitFabric;
+import ta.util.Logger;
 import ta.util.SystemOutLogger;
 
 import static ta.util.SystemOutLogger.LOG_CHRONO_FORMAT;
 
 public class Main {
 
+    private static final Logger logger = new SystemOutLogger(LOG_CHRONO_FORMAT);
+    private static final UnitFabric unitFabric = new TestUnitFabric(logger);
+
     public static void main(String[] args) {
 
-        final SystemOutLogger logger = new SystemOutLogger(LOG_CHRONO_FORMAT);
-
-        final TestThread testThread1 = new TestThread(logger);
-        final Thread thread1 = new Thread(testThread1);
-
-        final Thread thread2 = new Thread(new TestThread(logger));
-        final Thread thread3 = new Thread(new TestThread(logger));
+        final Thread thread1 = new Thread(unitFabric.getUnit());
+        final Thread thread2 = new Thread(unitFabric.getUnit());
+        final Thread thread3 = new Thread(unitFabric.getUnit());
 
         logger.out("Start");
 
