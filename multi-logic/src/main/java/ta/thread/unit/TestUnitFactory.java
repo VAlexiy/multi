@@ -4,12 +4,12 @@ import ta.util.logger.Logger;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public class TestUnitFabric implements UnitFabric {
+public class TestUnitFactory implements UnitFactory {
 
     private final Logger logger;
     private AtomicLong lastUnitId = new AtomicLong(0L);
 
-    public TestUnitFabric(final Logger logger) {
+    public TestUnitFactory(final Logger logger) {
         this.logger = logger;
     }
 

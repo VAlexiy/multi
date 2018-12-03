@@ -1,10 +1,9 @@
 package ta;
 
-import ta.thread.unit.TestUnitFabric;
-import ta.thread.unit.UnitFabric;
+import ta.thread.unit.TestUnitFactory;
+import ta.thread.unit.UnitFactory;
 import ta.util.logger.Logger;
 import ta.util.logger.QueueSystemOutLogger;
-import ta.util.logger.SynchronizedSystemOutLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +14,13 @@ public class Main {
 
     //    private static final Logger logger = new SynchronizedSystemOutLogger(LOG_CHRONO_FORMAT);
     private static final Logger logger = new QueueSystemOutLogger(LOG_CHRONO_FORMAT);
-    private static final UnitFabric unitFabric = new TestUnitFabric(logger);
+    private static final UnitFactory UNIT_FACTORY = new TestUnitFactory(logger);
 
     public static void main(String[] args) {
         final List<Thread> threads = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            threads.add(new Thread(unitFabric.getUnit()));
+            threads.add(new Thread(UNIT_FACTORY.getUnit()));
         }
 
         logger.out("Start");

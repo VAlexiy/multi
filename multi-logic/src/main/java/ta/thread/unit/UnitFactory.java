@@ -1,6 +1,6 @@
 package ta.thread.unit;
 
-public interface UnitFabric {
+public interface UnitFactory {
 
     Unit getUnit();
 }

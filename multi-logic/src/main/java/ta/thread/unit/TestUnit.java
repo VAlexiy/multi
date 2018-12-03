@@ -16,7 +16,7 @@ public class TestUnit implements Unit {
 
     @Override
     public void run(ThreadContext context) throws InterruptedException {
-        Thread.sleep(300);
+        Thread.sleep(500);
         final Thread thread = Thread.currentThread();
         logger.out("thread = [%s], id = [%s]", thread.getName(), getId());
     }

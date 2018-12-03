@@ -29,7 +29,7 @@ public class QueueSystemOutLogger implements Logger {
             while (started || !queue.isEmpty()) {
                 while (!queue.isEmpty()) {
                     out(queue.poll());
-                    sleep(500);
+                    sleep(300);
                 }
             }
         }
