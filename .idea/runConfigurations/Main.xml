@@ -5,7 +5,7 @@
     <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="ta.util.*" />
+        <option name="PATTERN" value="ta.util.logger.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

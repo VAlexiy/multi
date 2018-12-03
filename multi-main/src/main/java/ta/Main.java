@@ -2,17 +2,19 @@ package ta;
 
 import ta.thread.unit.TestUnitFabric;
 import ta.thread.unit.UnitFabric;
-import ta.util.Logger;
-import ta.util.SynchronizedSystemOutLogger;
+import ta.util.logger.Logger;
+import ta.util.logger.QueueSystemOutLogger;
+import ta.util.logger.SynchronizedSystemOutLogger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ta.util.SynchronizedSystemOutLogger.LOG_CHRONO_FORMAT;
+import static ta.util.logger.Constants.LOG_CHRONO_FORMAT;
 
 public class Main {
 
-    private static final Logger logger = new SynchronizedSystemOutLogger(LOG_CHRONO_FORMAT);
+    //    private static final Logger logger = new SynchronizedSystemOutLogger(LOG_CHRONO_FORMAT);
+    private static final Logger logger = new QueueSystemOutLogger(LOG_CHRONO_FORMAT);
     private static final UnitFabric unitFabric = new TestUnitFabric(logger);
 
     public static void main(String[] args) {
@@ -28,20 +30,18 @@ public class Main {
         threads.forEach(Main::threadJoin);
 
         logger.out("Stop");
+        //TODO: придумать неявный способ остановки
+        logger.stop();
     }
 
     private static void threadJoin(Thread thread) {
         try {
             thread.join();
         } catch (InterruptedException e) {
-            Thread currentThread = Thread.currentThread();
-            logger.out("Thread: [%s], Exception: [%s] - '%s'",
-                    currentThread.getName(),
-                    e.getClass().getSimpleName(),
-                    e.getLocalizedMessage()
-            );
-            currentThread.interrupt();
+            logger.error(e);
 //            thread.interrupt();
+            final Thread currentThread = Thread.currentThread();
+            currentThread.interrupt();
         }
     }
 }

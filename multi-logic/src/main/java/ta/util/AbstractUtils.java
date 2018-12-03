@@ -1,8 +1,7 @@
 package ta.util;
 
-abstract class AbstractUtils {
-
-    AbstractUtils() {
+public abstract class AbstractUtils {
+    protected AbstractUtils() {
         throw new IllegalStateException("Utility class");
     }
 }

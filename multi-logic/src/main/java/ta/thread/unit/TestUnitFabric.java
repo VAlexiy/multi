@@ -1,6 +1,6 @@
 package ta.thread.unit;
 
-import ta.util.Logger;
+import ta.util.logger.Logger;
 
 import java.util.concurrent.atomic.AtomicLong;
 

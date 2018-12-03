@@ -1,6 +1,6 @@
 package ta.thread;
 
-import ta.util.Logger;
+import ta.util.logger.Logger;
 
 import java.util.Optional;
 

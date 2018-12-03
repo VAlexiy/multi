@@ -1,16 +1,12 @@
-package ta.util;
+package ta.util.logger;
 
 import java.io.PrintStream;
 import java.util.Calendar;
 
 import static ta.util.StringUtils.isNullOrEmpty;
+import static ta.util.logger.Constants.LOG_ERROR_FORMAT;
 
 public class SynchronizedSystemOutLogger implements Logger {
-
-    // see Date/Time Conversions
-    // %1$tL - Millisecond
-    // %1$tN - Nanosecond
-    public static final String LOG_CHRONO_FORMAT = "[%1$tY-%1$tm-%1$td] - [%tT %1$tL] ";
 
     private String chronoFormat;
 
@@ -19,13 +15,17 @@ public class SynchronizedSystemOutLogger implements Logger {
     }
 
     @Override
-    public synchronized void out(final String message, Object ... values) {
+    public String getErrorFormat() {
+        return LOG_ERROR_FORMAT;
+    }
+
+    @Override
+    public synchronized void out(final String message, final Object ... values) {
         PrintStream out = System.out;
 
-//        Calendar calendar = GregorianCalendar.getInstance();
-        Calendar calendar = Calendar.getInstance();
-
         if (!isNullOrEmpty(chronoFormat)) {
+//        Calendar calendar = GregorianCalendar.getInstance();
+            final Calendar calendar = Calendar.getInstance();
             out = out.format(chronoFormat, calendar);
         }
 
